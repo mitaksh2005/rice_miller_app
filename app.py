@@ -1,14 +1,16 @@
 from flask import Flask, render_template, request, redirect
 import MySQLdb
+import os
 
 app = Flask(__name__)
 
-# Database config
+# Database config using environment variables
 db_config = {
-    "host": "localhost",
-    "user": "root",
-    "passwd": "Mitaksh@2005",
-    "db": "rice_miller"
+    "host": os.environ.get("MYSQL_HOST", "localhost"),
+    "user": os.environ.get("MYSQL_USER", "root"),
+    "passwd": os.environ.get("MYSQL_PASSWORD", "Mitaksh@2005"),
+    "db": os.environ.get("MYSQL_DB", "rice_miller"),
+    "port": int(os.environ.get("MYSQL_PORT", 3306))
 }
 
 @app.route('/')
@@ -70,28 +72,28 @@ Description : {inv[5]:<20} RST# : {inv[4]}
 Date        : {inv[6]} Due Date   : {inv[7]}
 
 -------------------------------------------------------------
-Net Qty   : {inv[8]:.3f}
-Gunnies   : {inv[9]:.3f}
-Winnes    : {inv[10]:.3f}
-Quality   : {inv[11]:.3f}
-Settle    : {inv[12]:.3f}
-Final Qty : {inv[13]:.3f}
+Net Qty   : {float(inv[8]):.3f}
+Gunnies   : {float(inv[9]):.3f}
+Winnes    : {float(inv[10]):.3f}
+Quality   : {float(inv[11]):.3f}
+Settle    : {float(inv[12]):.3f}
+Final Qty : {float(inv[13]):.3f}
 -------------------------------------------------------------
 Gunny Balance: {inv[14]}
 
 Bags         : {inv[15]}
-Rate         : {inv[16]:.2f}
-Amount       : {inv[17]:.2f}
+Rate         : {float(inv[16]):.2f}
+Amount       : {float(inv[17]):.2f}
 -------------------------------------------------------------
 (+)
-Market #{inv[18]:<16} : {inv[19]:>10.2f}
-Handling                  : {inv[20]:>10.2f}
-Supervisor Charges        : {inv[21]:>10.2f}
+Market #{inv[18]:<16} : {float(inv[19]):>10.2f}
+Handling                  : {float(inv[20]):>10.2f}
+Supervisor Charges        : {float(inv[21]):>10.2f}
 (-)
-L.F. Adv.                 : {inv[22]:>10.2f}
-W / B Charges             : {inv[23]:>10.2f}
+L.F. Adv.                 : {float(inv[22]):>10.2f}
+W / B Charges             : {float(inv[23]):>10.2f}
 
-TOTAL AMOUNT              : {inv[24]:>10.2f}
+TOTAL AMOUNT              : {float(inv[24]):>10.2f}
 -------------------------------------------------------------"""
 
 if __name__ == '__main__':
