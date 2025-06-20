@@ -6,8 +6,8 @@ app = Flask(__name__)
 
 # Database config using environment variables
 db_config = {
-    "host": os.environ.get("MYSQL_HOST", "localhost"),
-    "user": os.environ.get("MYSQL_USER", "root"),
+    "host": os.environ.get("MYSQL_HOST", "db4free.net"),
+    "user": os.environ.get("MYSQL_USER", "mitaksh"),
     "passwd": os.environ.get("MYSQL_PASSWORD", "Mitaksh@2005"),
     "db": os.environ.get("MYSQL_DB", "rice_miller"),
     "port": int(os.environ.get("MYSQL_PORT", 3306))
