@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Invoice</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f4f4f4;
+            padding: 40px;
+        }
+        .container {
+            background: #fff;
+            padding: 30px 40px;
+            max-width: 800px;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px 30px;
+        }
+        .form-grid input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .form-actions {
+            margin-top: 30px;
+            text-align: center;
+        }
+        .form-actions button {
+            padding: 12px 30px;
+            background: #007BFF;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        .form-actions button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Add New Invoice</h2>
+        <form method="POST" action="/add">
+            <div class="form-grid">
+                <input name="seller_name" placeholder="Seller Name" required>
+                <input name="vehicle_no" placeholder="Vehicle No." required>
+                <input name="inward_no" placeholder="Inward No." required>
+                <input name="rst_no" placeholder="RST No." required>
+                <input name="description" placeholder="Description" required>
+                <input type="date" name="date" required>
+                <input type="date" name="due_date" required>
+                <input type="number" step="0.001" name="net_qty" placeholder="Net Qty" required>
+                <input type="number" step="0.001" name="gunnies" placeholder="Gunnies" required>
+                <input type="number" step="0.001" name="winnes" placeholder="Winnes" required>
+                <input type="number" step="0.001" name="quality" placeholder="Quality" required>
+                <input type="number" step="0.001" name="settle" placeholder="Settle" required>
+                <input type="number" step="0.001" name="final_qty" placeholder="Final Qty" required>
+                <input type="number" name="gunny_balance" placeholder="Gunny Balance" required>
+                <input type="number" name="bags" placeholder="Bags" required>
+                <input type="number" step="0.01" name="rate" placeholder="Rate" required>
+                <input type="number" step="0.01" name="amount" placeholder="Amount" required>
+                <input name="market_no" placeholder="Market No." required>
+                <input type="number" step="0.01" name="market_amt" placeholder="Market Amount" required>
+                <input type="number" step="0.01" name="handling" placeholder="Handling Charges" required>
+                <input type="number" step="0.01" name="supervisor" placeholder="Supervisor Charges" required>
+                <input type="number" step="0.01" name="lf_adv" placeholder="L.F. Advance" required>
+                <input type="number" step="0.01" name="wb_charges" placeholder="W/B Charges" required>
+                <input type="number" step="0.01" name="total" placeholder="Total Amount" required>
+            </div>
+            <div class="form-actions">
+                <button type="submit">Submit Invoice</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

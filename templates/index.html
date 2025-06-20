@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Miller Invoice</title>
+    <style>
+        body { font-family: Courier, monospace; background: #f9f9f9; padding: 20px; }
+        pre { background: white; padding: 20px; border: 1px solid #ccc; }
+    </style>
+</head>
+<body>
+    <h2>Invoices</h2>
+    {% for invoice in invoices %}
+        <pre>{{ invoice|format_invoice }}</pre>
+    {% endfor %}
+</body>
+</html>
